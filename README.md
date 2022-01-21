@@ -1,3 +1,19 @@
+###Skapa ett paket med tre klasser
+
+#### Paket com.example.blogapiserver;
+#### Klass: BlogApiServerApplication.java 
+Innehåller main-metoden för att kunna starta programmet.
+
+#### Klass: BlogPost.java (Objekt)
+Innehåller attribut för ett blogginlägg (Id, Titel & Body)
+Innehåller ToString metod och Enkapsulering av attributen
+
+#### Klass: BlogController.java ("Server")
+Innehåller metoder som styrs av annoteringar med HTTP-adresser
+Arraylist av klassen BlogPost för att spara blogginlägg
+
+
+***
 ## Serverkomponenten:
 - Servern ska använda sig av Spring-ramverket och det är i servern som alla
 blogginlägg sparas
@@ -5,33 +21,30 @@ blogginlägg sparas
 inlägg och visa specifikt inlägg.
 - Adresserna till dessa API-förfrågningar ska vara följande:
 
-  ###/api/v1/blog/list – Lista alla inlägg (TODO)
-- **Given**: Att användaren vill visa alla inlägg och valt det alternativet
-- **When**: När "/api/v1/blog/list" anropas ska klienten skicka en förfrågan till servern om att Lista alla inlägg (GET)
-- **Then**: Då ska servern svara med en lista på alla inlägg
+  ###/api/v1/blog/list – Lista alla inlägg (DONE, DEV)
+- **Given**: Att användaren har menyn framför sig
+- **When**: Användaren väljer alternativet att lista blogginlägg
+- **Then**: Ska klienten visa en lista med alla blogginlägg
 ***
   ###/api/v1/blog/view/<id> - Visa ett specifikt inlägg (TODO)
-- **Given**: Att användaren vill visa ett specifikt inlägg och valt det alternativet
-- **When**: När /api/v1/blog/view/<id> anropas ska klienten skicka en förfrågan till servern om att lista ett specifikt inlägg (GET)
-- **Then**: Då svarar servern med information om det specifika inlägget 
+- **Given**: Att användaren har menyn framför sig
+- **When**: Användaren väljer alternativet att lista specifikt blogginlägg med ett ID-nummer
+- **Then**: Ska klienten visa det specifikt blogginlägget om det finns annars svara med en felkod
 ***
-
   ###/api/v1/blog/update/<id> - Uppdatera ett specifikt inlägg (TODO)
-- **Given**: Att användaren vill uppdatera ett specifikt inlägg och valt det alternativet
-- **When**: När /api/v1/blog/update/<id> anropas ska klienten skicka en förfrågan till servern om att uppdatera ett specifikt inlägg (POST/PATCH)
-- **Then**: Då ska servern uppdatera inlägget och skriva ut godkänt meddelande 
+- **Given**: Att användaren har menyn framför sig
+- **When**: Användaren väljer alternativet att uppdatera ett specifikt blogginlägg med ID-nummer
+- **Then**: Ska klienten fråga efter ny titel eller body som ska ändras och skicka tillbaka uppdatering till servern
 ***
-
   ###/api/v1/blog/delete/<id> - Ta bort ett specifikt inlägg (TODO)
-- **Given**: Att användaren vill ta bort ett specifikt inlägg och valt det alternativet
-- **When**: När /api/v1/blog/delete/<id> anropas ska klienten skicka en förfrågan till servern om att ta bort ett specifikt inlägg (DELETE)
-- **Then**: Då ska servern ta bort inlägget och skriva ut godkänt meddelande
+- **Given**: Att användaren har menyn framför sig 
+- **When**: Användaren väljer att ta bort ett specifikt blogginlägg 
+- **Then**: Om ID-numret finns ska klienten skicka förfrågan till servern annars svara med felkod
 ***
-
-  ###/api/v1/blog/create – Lägg till ett nytt inlägg (TODO)
-- **Given**: Att användaren vill skapa nytt inlägg och valt det alternativet
-- **When**: När /api/v1/blog/create anropas ska klienten skicka en förfrågan om att skapa ett nytt inlägg (POST)
-- **Then**: Då ska servern skapa ett nytt inlägg och svara med godkänt meddelande
+  ###/api/v1/blog/create – Lägg till ett nytt inlägg (DONE, DEV)
+- **Given**: Att användaren har menyn framför sig
+- **When**: Användaren väljer att skapa ett nytt blogginlägg 
+- **Then**: Ska klienten skicka förfrågan om att skapa ett nytt blogginlägg till servern
 ***
 
 - Fler får läggas till om du känner ett behov av det
