@@ -27,12 +27,32 @@ public class BlogController {
     }
 
     @RequestMapping(value = "list", method = RequestMethod.GET)
-    public ArrayList<BlogPost> listPosts() {
+    public ArrayList<BlogPost> listAllPosts() {
         return myBlogPosts;
+    }
+
+    @RequestMapping(value = "get/{id}", method = RequestMethod.GET)
+    public BlogPost ListBlogId(@PathVariable("id") int id){
+        System.out.println("Getting post with id " + id);
+        return getPostByID(id);
     }
 
 
 
 
+
+
+
+
+
+    private BlogPost getPostByID(int id) {
+        for (int i = 0; i < myBlogPosts.size(); i++){
+            BlogPost currentPost = myBlogPosts.get(i);
+            if(currentPost.getId() == id) {
+                return myBlogPosts.get(i);
+            }
+        }
+        return new BlogPost();
+    }
 
 }
