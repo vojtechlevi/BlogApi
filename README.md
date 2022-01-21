@@ -26,12 +26,12 @@ inlägg och visa specifikt inlägg.
 - **When**: Användaren väljer alternativet att lista blogginlägg
 - **Then**: Ska klienten visa en lista med alla blogginlägg
 ***
-  ###/api/v1/blog/view/<id> - Visa ett specifikt inlägg (TODO)
+  ###/api/v1/blog/view/<id> - Visa ett specifikt inlägg (DONE, DEV)
 - **Given**: Att användaren har menyn framför sig
 - **When**: Användaren väljer alternativet att lista specifikt blogginlägg med ett ID-nummer
 - **Then**: Ska klienten visa det specifikt blogginlägget om det finns annars svara med en felkod
 ***
-  ###/api/v1/blog/update/<id> - Uppdatera ett specifikt inlägg (TODO)
+  ###/api/v1/blog/update/<id> - Uppdatera ett specifikt inlägg (DONE, DEV)
 - **Given**: Att användaren har menyn framför sig
 - **When**: Användaren väljer alternativet att uppdatera ett specifikt blogginlägg med ID-nummer
 - **Then**: Ska klienten fråga efter ny titel eller body som ska ändras och skicka tillbaka uppdatering till servern
