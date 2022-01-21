@@ -1,7 +1,14 @@
+
+***
+
+
+
+#Serverkomponenten:
+
 ###Skapa ett paket med tre klasser
 
 #### Paket com.example.blogapiserver;
-#### Klass: BlogApiServerApplication.java 
+#### Klass: BlogApiServerApplication.java
 Innehåller main-metoden för att kunna starta programmet.
 
 #### Klass: BlogPost.java (Objekt)
@@ -12,9 +19,8 @@ Innehåller ToString metod och Enkapsulering av attributen
 Innehåller metoder som styrs av annoteringar med HTTP-adresser
 Arraylist av klassen BlogPost för att spara blogginlägg
 
-
 ***
-## Serverkomponenten:
+
 - Servern ska använda sig av Spring-ramverket och det är i servern som alla
 blogginlägg sparas
 - Servern ska svara på API-förfrågningar för att lista inlägg, redigera inlägg, ta bort
@@ -36,7 +42,7 @@ inlägg och visa specifikt inlägg.
 - **When**: Användaren väljer alternativet att uppdatera ett specifikt blogginlägg med ID-nummer
 - **Then**: Ska klienten fråga efter ny titel eller body som ska ändras och skicka tillbaka uppdatering till servern
 ***
-  ###/api/v1/blog/delete/<id> - Ta bort ett specifikt inlägg (TODO)
+  ###/api/v1/blog/delete/<id> - Ta bort ett specifikt inlägg (DONE)
 - **Given**: Att användaren har menyn framför sig 
 - **When**: Användaren väljer att ta bort ett specifikt blogginlägg 
 - **Then**: Om ID-numret finns ska klienten skicka förfrågan till servern annars svara med felkod
