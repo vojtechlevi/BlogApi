@@ -61,9 +61,21 @@ public class BlogController {
         if (postToUpdate != null) {
             if (postChanges.getTitle() != null) {
                 postToUpdate.setTitle(postChanges.getTitle());
+                if (postChanges.getTitle() == "") {
+                    return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+                }
+                if (postChanges.getBody() == "") {
+                    return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+                }
             }
             if (postChanges.getBody() != null) {
                 postToUpdate.setBody(postChanges.getBody());
+                if (postChanges.getTitle() == "") {
+                    return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+                }
+                if (postChanges.getBody() == "") {
+                    return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+                }
             }
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
