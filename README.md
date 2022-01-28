@@ -8,15 +8,15 @@
 - [x] Skapa ett paket med tre klasser
 - [x] Paket com.example.blogapiserver;
 - [x] Klass: BlogApiServerApplication.java (Main-metod)
-  - [x] Innehåller main-metoden för att kunna starta programmet.
+  -  Innehåller main-metoden för att kunna starta programmet.
 
 - [x] Klass: BlogPost.java (Objekt)
-  - [x] Innehåller attribut för ett blogginlägg (Id, Titel & Body)
-  - [x] Innehåller ToString metod och Enkapsulering av attributen
+  -  Innehåller attribut för ett blogginlägg (Id, Titel & Body)
+  -  Innehåller ToString metod och Enkapsulering av attributen
 
 - [x] Klass: BlogController.java ("Server")
-  - [x] Innehåller metoder som styrs av annoteringar med HTTP-adresser
-  - [x] Arraylist av klassen BlogPost för att spara blogginlägg
+  -  Innehåller metoder som styrs av annoteringar med HTTP-adresser
+  -  Arraylist av klassen BlogPost för att spara blogginlägg
 
 ***
 
@@ -27,29 +27,29 @@ inlägg och visa specifikt inlägg.
 - Adresserna till dessa API-förfrågningar ska vara följande:
 
 ###/api/v1/blog/list – Lista alla inlägg (DONE)
-- **Given**: Att användaren har menyn framför sig
-- **When**: Användaren väljer alternativet att lista blogginlägg
-- **Then**: Ska klienten visa en lista med alla blogginlägg
+-[x] **Given**: Att användaren har menyn framför sig
+-[x] **When**: Användaren väljer alternativet att lista blogginlägg
+-[x] **Then**: Ska klienten visa en lista med alla blogginlägg
 ***
   ###/api/v1/blog/view/<id> - Visa ett specifikt inlägg (DONE)
-- **Given**: Att användaren har menyn framför sig
-- **When**: Användaren väljer alternativet att lista specifikt blogginlägg med ett ID-nummer
-- **Then**: Ska klienten visa det specifikt blogginlägget om det finns annars svara med en felkod
+-[x] **Given**: Att användaren har menyn framför sig
+-[x] **When**: Användaren väljer alternativet att lista specifikt blogginlägg med ett ID-nummer
+-[x] **Then**: Ska klienten visa det specifikt blogginlägget om det finns annars svara med en felkod
 ***
   ###/api/v1/blog/update/<id> - Uppdatera ett specifikt inlägg (DONE)
-- **Given**: Att användaren har menyn framför sig
-- **When**: Användaren väljer alternativet att uppdatera ett specifikt blogginlägg med ID-nummer
-- **Then**: Ska klienten fråga efter ny titel eller body som ska ändras och skicka tillbaka uppdatering till servern
+- [x] **Given**: Att användaren har menyn framför sig
+- [x] **When**: Användaren väljer alternativet att uppdatera ett specifikt blogginlägg med ID-nummer
+- [x] **Then**: Ska klienten fråga efter ny titel eller body som ska ändras och skicka tillbaka uppdatering till servern
 ***
   ###/api/v1/blog/delete/<id> - Ta bort ett specifikt inlägg (DONE)
-- **Given**: Att användaren har menyn framför sig 
-- **When**: Användaren väljer att ta bort ett specifikt blogginlägg 
-- **Then**: Om ID-numret finns ska klienten skicka förfrågan till servern annars svara med felkod
+- [x] **Given**: Att användaren har menyn framför sig
+- [x] **When**: Användaren väljer att ta bort ett specifikt blogginlägg
+- [x] **Then**: Om ID-numret finns ska klienten skicka förfrågan till servern annars svara med felkod
 ***
   ###/api/v1/blog/create – Lägg till ett nytt inlägg (DONE)
-- **Given**: Att användaren har menyn framför sig
-- **When**: Användaren väljer att skapa ett nytt blogginlägg 
-- **Then**: Ska klienten skicka förfrågan om att skapa ett nytt blogginlägg till servern
+- [x] **Given**: Att användaren har menyn framför sig
+- [x] **When**: Användaren väljer att skapa ett nytt blogginlägg 
+- [x] **Then**: Ska klienten skicka förfrågan om att skapa ett nytt blogginlägg till servern
 ***
 
 - Fler får läggas till om du känner ett behov av det
@@ -65,4 +65,5 @@ inlägg och visa specifikt inlägg.
 - Du ska skapa en Dockerfile och skriva instruktioner om hur serverkomponenten
 kan startas som en Docker-container, och klientkomponenten ska kunna ansluta
 till serverkomponenten.
-- Du ska använda loggning med SLF4J och logga alla API-anrop
+
+- [x] Du ska använda loggning med SLF4J och logga alla API-anrop
