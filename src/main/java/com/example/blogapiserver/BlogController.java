@@ -1,8 +1,11 @@
 package com.example.blogapiserver;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 
@@ -10,13 +13,13 @@ import java.util.ArrayList;
 @RequestMapping(value = "/api/v1/blog")
 public class BlogController {
     private BlogService blogService;
+    private Logger logger;
 
-
-    ArrayList<BlogPost> myBlogPosts;
-
-
-    public BlogController() {
-        blogService = new BlogService();
+    // Dependency Injection
+    @Autowired
+    public BlogController(BlogService blogService) {
+        this.blogService = new BlogService();
+        logger = LoggerFactory.getLogger(BlogController.class);
     }
 
 
@@ -28,13 +31,14 @@ public class BlogController {
         }if(newPost.getBody() == null) {
             return new ResponseEntity<BlogPost>(newPost, HttpStatus.BAD_REQUEST);
         }
+        logger.info("Added Post, ID: " + newPost.getId());
         return new ResponseEntity<BlogPost>(newPost, HttpStatus.CREATED);
         }
 
 
     @RequestMapping(value = "list", method = RequestMethod.GET)
     public ArrayList<BlogPost> listAllPosts() {
-        myBlogPosts = blogService.listAllPosts();
+        ArrayList<BlogPost> myBlogPosts = blogService.listAllPosts();
         return myBlogPosts;
 
     }
@@ -91,6 +95,7 @@ public class BlogController {
         }
 
     }
+
 
     @RequestMapping(value = "clear", method = RequestMethod.GET)
     public void clearAllPosts() {

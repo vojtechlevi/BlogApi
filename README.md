@@ -5,19 +5,18 @@
 
 #Serverkomponenten:
 
-- Skapa ett paket med tre klasser
+- [x] Skapa ett paket med tre klasser
+- [x] Paket com.example.blogapiserver;
+- [x] Klass: BlogApiServerApplication.java (Main-metod)
+  - [x] Innehåller main-metoden för att kunna starta programmet.
 
-- Paket com.example.blogapiserver;
-- Klass: BlogApiServerApplication.java (Main-metod)
-  - Innehåller main-metoden för att kunna starta programmet.
+- [x] Klass: BlogPost.java (Objekt)
+  - [x] Innehåller attribut för ett blogginlägg (Id, Titel & Body)
+  - [x] Innehåller ToString metod och Enkapsulering av attributen
 
-- Klass: BlogPost.java (Objekt)
-  - Innehåller attribut för ett blogginlägg (Id, Titel & Body)
-  - Innehåller ToString metod och Enkapsulering av attributen
-
-- Klass: BlogController.java ("Server")
-  - Innehåller metoder som styrs av annoteringar med HTTP-adresser
-  - Arraylist av klassen BlogPost för att spara blogginlägg
+- [x] Klass: BlogController.java ("Server")
+  - [x] Innehåller metoder som styrs av annoteringar med HTTP-adresser
+  - [x] Arraylist av klassen BlogPost för att spara blogginlägg
 
 ***
 
@@ -27,7 +26,7 @@ blogginlägg sparas
 inlägg och visa specifikt inlägg.
 - Adresserna till dessa API-förfrågningar ska vara följande:
 
-  ###/api/v1/blog/list – Lista alla inlägg (DONE)
+###/api/v1/blog/list – Lista alla inlägg (DONE)
 - **Given**: Att användaren har menyn framför sig
 - **When**: Användaren väljer alternativet att lista blogginlägg
 - **Then**: Ska klienten visa en lista med alla blogginlägg
@@ -61,8 +60,8 @@ inlägg och visa specifikt inlägg.
 
 # Checklista för Väl Godkänt
 
-- Du ska separera koden i en Service och en Controller
-- Du ska använda dig av Dependency Injection
+- [x] Du ska separera koden i en Service och en Controller
+- [x] Du ska använda dig av Dependency Injection
 - Du ska skapa en Dockerfile och skriva instruktioner om hur serverkomponenten
 kan startas som en Docker-container, och klientkomponenten ska kunna ansluta
 till serverkomponenten.
