@@ -1,7 +1,7 @@
 
 ***
 
-
+#Checklista för Godkänt
 
 #Serverkomponenten:
 
@@ -58,3 +58,12 @@ inlägg och visa specifikt inlägg.
 - Din kod ska sparas i versionhantering med Git
 
 ***
+
+# Checklista för Väl Godkänt
+
+- Du ska separera koden i en Service och en Controller
+- Du ska använda dig av Dependency Injection
+- Du ska skapa en Dockerfile och skriva instruktioner om hur serverkomponenten
+kan startas som en Docker-container, och klientkomponenten ska kunna ansluta
+till serverkomponenten.
+- Du ska använda loggning med SLF4J och logga alla API-anrop
