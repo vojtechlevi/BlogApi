@@ -26,10 +26,15 @@ public class BlogController {
     @RequestMapping(value = "create", method = RequestMethod.POST)
     public ResponseEntity<BlogPost> createPost(@RequestBody BlogPost blogPost) {
         BlogPost newPost = blogService.createPost(blogPost);
-        if(newPost.getTitle() == null) {
-            return new ResponseEntity<BlogPost>(newPost, HttpStatus.BAD_REQUEST);
-        }if(newPost.getBody() == null) {
-            return new ResponseEntity<BlogPost>(newPost, HttpStatus.BAD_REQUEST);
+        if(newPost != null) {
+            if (newPost.getTitle() == "") {
+                logger.warn("Issue adding post ");
+                return new ResponseEntity<BlogPost>(newPost, HttpStatus.BAD_REQUEST);
+            }
+            if (newPost.getBody() == "") {
+                logger.warn("Issue adding post ");
+                return new ResponseEntity<BlogPost>(newPost, HttpStatus.BAD_REQUEST);
+            }
         }
         logger.info("Added Post, ID: " + newPost.getId());
         return new ResponseEntity<BlogPost>(newPost, HttpStatus.CREATED);
@@ -38,6 +43,7 @@ public class BlogController {
 
     @RequestMapping(value = "list", method = RequestMethod.GET)
     public ArrayList<BlogPost> listAllPosts() {
+        logger.info("Listing all Posts");
         ArrayList<BlogPost> myBlogPosts = blogService.listAllPosts();
         return myBlogPosts;
 
@@ -48,8 +54,10 @@ public class BlogController {
     public ResponseEntity<BlogPost> getPost(@PathVariable("id") int id) {
         BlogPost fetchedPost = blogService.getPost(id);
         if (fetchedPost == null) {
+            logger.warn("Issue fetching post with ID: " + id);
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+        logger.info("Fetching post with ID: " + id);
         return new ResponseEntity<BlogPost>(fetchedPost, HttpStatus.OK);
     }
 
@@ -62,24 +70,30 @@ public class BlogController {
             if (postChanges.getTitle() != null) {
                 postToUpdate.setTitle(postChanges.getTitle());
                 if (postChanges.getTitle() == "") {
+                    logger.warn("Issue updating post with ID: " + id);
                     return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
                 }
                 if (postChanges.getBody() == "") {
+                    logger.warn("Issue updating post with ID: " + id);
                     return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
                 }
             }
             if (postChanges.getBody() != null) {
                 postToUpdate.setBody(postChanges.getBody());
                 if (postChanges.getTitle() == "") {
+                    logger.warn("Issue updating post with ID: " + id);
                     return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
                 }
                 if (postChanges.getBody() == "") {
+                    logger.warn("Issue updating post with ID: " + id);
                     return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
                 }
             }
         } else {
+            logger.warn("Cannot find post with ID: " + id);
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+        logger.info("Updated post with ID: " + id);
         return new ResponseEntity<>(postToUpdate, HttpStatus.OK);
     }
 
@@ -89,8 +103,10 @@ public class BlogController {
         BlogPost postToDelete = blogService.deletePost(id);
 
         if (postToDelete != null) {
+            logger.info("Deleted post with ID: " + id);
             return new ResponseEntity(HttpStatus.OK);
         } else {
+            logger.warn("Cannot find post with ID: " + id);
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
@@ -99,6 +115,7 @@ public class BlogController {
 
     @RequestMapping(value = "clear", method = RequestMethod.GET)
     public void clearAllPosts() {
+        logger.info("Clearing list of posts");
         blogService.clearAllPosts();
 
     }

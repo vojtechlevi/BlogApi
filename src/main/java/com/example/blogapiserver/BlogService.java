@@ -19,45 +19,55 @@ public class BlogService {
     public BlogPost createPost(BlogPost newPost) {
 
         latestPostID++;
-        newPost.setId(latestPostID);
-        myBlogPosts.add(newPost);
-        System.out.println("Added post, ID: " + newPost.getTitle());
-        return newPost;
-
+        if(newPost.getTitle() == ""){
+            return newPost;
+        }
+        if(newPost.getBody() == ""){
+            return newPost;
+        } else {
+            newPost.setId(latestPostID);
+            myBlogPosts.add(newPost);
+            return newPost;
+        }
     }
 
     public ArrayList<BlogPost> listAllPosts() {
-        System.out.println("Listing all Posts");
+
         return myBlogPosts;
     }
 
     public BlogPost getPost(int id) {
-        System.out.println("Fetching post with ID: " + id);
+
         BlogPost fetchedPost = getPostByID(id);
         return fetchedPost;
     }
 
     public BlogPost updatePost(int id, BlogPost postChanges) {
-        System.out.println("Updated post with ID: " + id);
+
         BlogPost postToUpdate;
-        postToUpdate = updatePostByID(id, postChanges);
-        return postToUpdate;
+        if(postChanges.getTitle() == ""){
+            return postChanges;
+        }
+        if(postChanges.getBody() == ""){
+            return postChanges;
+        } else {
+            postToUpdate = updatePostByID(id, postChanges);
+            return postToUpdate;
+        }
     }
 
     public BlogPost deletePost(int id) {
-        System.out.println("Deleting post with ID: " + id);
+
         BlogPost postToDelete = getPostByID(id);
 
         if (postToDelete != null) {
             myBlogPosts.remove(postToDelete);
-        } else {
-            System.out.println("Couldn't find ID: " + id);
         }
+
         return postToDelete;
     }
 
     public void clearAllPosts() {
-        System.out.println("Clearing List");
         latestPostID = 0;
         myBlogPosts.clear();
     }
